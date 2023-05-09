@@ -1,0 +1,7 @@
+name: example
+data_dir: /jmain02/home/J2AD003/txk50/eeg99-txk50/americas-nlp/data/
+partition: test
+flores_path: /jmain02/home/J2AD003/txk50/eeg99-txk50/americas-nlp/flores/flores200_dataset
+# non_flores_path: /data/nllb/non_flores_evaluation_data
+memory_multiplier: 50
+timeout_min: 1000

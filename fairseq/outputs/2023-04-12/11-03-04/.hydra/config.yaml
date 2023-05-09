@@ -1,0 +1,263 @@
+cluster:
+  name: example
+  data_dir: /jmain02/home/J2AD003/txk50/eeg99-txk50/americas-nlp/data/
+  partition: test
+  flores_path: /jmain02/home/J2AD003/txk50/eeg99-txk50/americas-nlp/flores/flores200_dataset
+  memory_multiplier: 50
+  timeout_min: 1000
+lang_config:
+  bin_root: flores200.en_xx_en.v4.4.256k
+  sampled:
+  - tat_Cyrl-rus
+  - eng-ayr
+  - eng-ewe
+  - ewe-eng
+  all:
+  - eng-ace_Latn
+  - eng-afr
+  - eng-ara_Arab
+  - eng-ast
+  - eng-ayr
+  - eng-bel
+  - eng-bul
+  - eng-cjk
+  - eng-cym
+  - eng-ewe
+  - eng-fas
+  - eng-fin
+  - eng-fon
+  - eng-fra
+  - eng-fuv
+  - eng-hau
+  - eng-hin
+  - eng-isl
+  - eng-ita
+  - eng-kea
+  - eng-kik
+  - eng-kin
+  - eng-kon
+  - eng-lav
+  - eng-lin
+  - eng-luo
+  - eng-mal
+  - eng-mar
+  - eng-nso
+  - eng-oci
+  - eng-run
+  - eng-rus
+  - eng-sin
+  - eng-snd
+  - eng-tam
+  - eng-tel
+  - eng-tir
+  - eng-tso
+  - eng-twi
+  - eng-urd
+  - eng-vie
+  - eng-wol
+  - eng-yor
+  - eng-yue
+  - eng-zho_Hans
+  - ara_Arab-sin
+  - sin-ara_Arab
+  - eus-por
+  - por-eus
+  - fra-hau
+  - hau-fra
+  - fra-kon
+  - kon-fra
+  - fra-lin
+  - lin-fra
+  - fra-swh
+  - swh-fra
+  - hin-tam
+  - tam-hin
+  - jpn-kor
+  - kor-jpn
+  - rus-tat_Cyrl
+  - tat_Cyrl-rus
+  - swh-tsn
+  - tsn-swh
+  - ace_Latn-eng
+  - afr-eng
+  - ara_Arab-eng
+  - ast-eng
+  - ayr-eng
+  - bel-eng
+  - bul-eng
+  - cjk-eng
+  - cym-eng
+  - ewe-eng
+  - fas-eng
+  - fin-eng
+  - fon-eng
+  - fra-eng
+  - fuv-eng
+  - hau-eng
+  - hin-eng
+  - isl-eng
+  - ita-eng
+  - kea-eng
+  - kik-eng
+  - kin-eng
+  - kon-eng
+  - lav-eng
+  - lin-eng
+  - luo-eng
+  - mal-eng
+  - mar-eng
+  - nso-eng
+  - oci-eng
+  - run-eng
+  - rus-eng
+  - sin-eng
+  - snd-eng
+  - tam-eng
+  - tel-eng
+  - tir-eng
+  - tso-eng
+  - twi-eng
+  - urd-eng
+  - vie-eng
+  - wol-eng
+  - yor-eng
+  - yue-eng
+  - zho_Hans-eng
+  model_langs:
+  - ace_Latn
+  - afr
+  - ara_Arab
+  - ast
+  - ayr
+  - bel
+  - bul
+  - cjk
+  - cym
+  - eng
+  - eus
+  - ewe
+  - fas
+  - fin
+  - fon
+  - fra
+  - fuv
+  - hau
+  - hin
+  - isl
+  - ita
+  - jpn
+  - kea
+  - kik
+  - kin
+  - kon
+  - kor
+  - lav
+  - lin
+  - luo
+  - mal
+  - mar
+  - nso
+  - oci
+  - por
+  - run
+  - rus
+  - sin
+  - snd
+  - swh
+  - tam
+  - tat_Cyrl
+  - tel
+  - tir
+  - tsn
+  - tso
+  - twi
+  - urd
+  - vie
+  - wol
+  - yor
+  - yue
+  - zho_Hans
+model_config:
+  langs:
+  - ace_Latn
+  - afr
+  - ara_Arab
+  - ast
+  - ayr
+  - bel
+  - bul
+  - cjk
+  - cym
+  - eng
+  - eus
+  - ewe
+  - fas
+  - fin
+  - fon
+  - fra
+  - fuv
+  - hau
+  - hin
+  - isl
+  - ita
+  - jpn
+  - kea
+  - kik
+  - kin
+  - kon
+  - kor
+  - lav
+  - lin
+  - luo
+  - mal
+  - mar
+  - nso
+  - oci
+  - por
+  - run
+  - rus
+  - sin
+  - snd
+  - swh
+  - tam
+  - tat_Cyrl
+  - tel
+  - tir
+  - tsn
+  - tso
+  - twi
+  - urd
+  - vie
+  - wol
+  - yor
+  - yue
+  - zho_Hans
+launcher:
+  cache:
+    _target_: stopes.core.launcher.NoCache
+  _target_: stopes.core.SubmititLauncher
+  log_folder: executor_logs
+  cluster: slurm
+  partition: ???
+fairseq_root: ???
+model_folder: ???
+model_type: moe
+direction: all
+eval_on: all
+checkpoints:
+- checkpoint_best
+lang_pairs_per_job: 1
+gen_splits:
+- valid
+data: ${cluster.data_dir}/${lang_config.bin_root}/data_bin/shard000
+spm_model: ${cluster.data_dir}/${lang_config.bin_root}/vocab_bin/sentencepiece.source.256000.model
+encoder_langtok: src
+output_dir: ${model_folder}
+beam_size: 4
+fp16: true
+metrics_only: false
+replication_count: 2
+finetune_dict_specs: null
+add_data_source_prefix_tags: false
+moe_eval_cap: 1.0
+datalabel: ''

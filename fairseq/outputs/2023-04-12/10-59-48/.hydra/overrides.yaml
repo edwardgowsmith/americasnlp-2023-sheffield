@@ -1,0 +1,8 @@
+- model_folder=/jmain02/home/J2AD003/txk50/eeg99-txk50/americas-nlp/nllb-600M
+- fairseq_root=/jmain02/home/J2AD003/txk50/eeg99-txk50/americas-nlp/fairseq
+- lang_pairs_per_job=10
+- encoder_langtok=src
+- model_type=dense
+- lang_config=flores200.sampled
+- eval_on=all
+- gen_splits=[valid]
