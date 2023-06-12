@@ -1,4 +1,4 @@
-# americasnlp-2023-sheffield
+# Sheffield's Submission to AmericasNLP 2023
 This repository contains the code to reproduce The University of Sheffield's Submission to the AmericasNLP 2023 Shared Task on Machine Translation into Indigenous Languages.
 
 Models can be trained using the scripts in train-models/
