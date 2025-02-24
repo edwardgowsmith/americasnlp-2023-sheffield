@@ -1,9 +1,16 @@
 # Sheffield's Submission to AmericasNLP 2023
 This repository contains the code to reproduce The University of Sheffield's Submission to the AmericasNLP 2023 Shared Task on Machine Translation into Indigenous Languages, which is also used as a baseline for the 2024 and 2025 editions of the AmericasNLP Shared Task. 
 
-Models can be trained using the scripts in train-models/
-
 We also provide links to download our best-performing models (excluding ensembles) at https://drive.google.com/drive/folders/12MCYFD5Q9YRWrRCWjqjEorsDLgGp_gXB?usp=sharing.
+
+## Training
+
+In order to train our models, first install our modified version of fairseq
+
+```console
+cd fairseq
+pip install --editable .
+```
 
 ## Citation
 
@@ -30,3 +37,4 @@ If you use our models in your work, please cite:
     doi = "10.18653/v1/2023.americasnlp-1.21",
     pages = "192--199"
 }
+```
