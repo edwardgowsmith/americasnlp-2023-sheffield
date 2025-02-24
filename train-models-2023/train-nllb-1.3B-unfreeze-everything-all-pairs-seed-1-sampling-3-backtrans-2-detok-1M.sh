@@ -1,11 +1,10 @@
 
-
 ckp=nllb-1.3B/checkpoint.pt
 root=evaluation_v3/NLLB-inference
 
 export PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512
-fairseq-train $databin --lang-pairs eng_Latn-grn_Latn,eng_Latn-quy_Latn,eng_Latn-ayr_Latn,spa_Latn-quy_Latn,spa_Latn-ayr_Latn,spa_Latn-grn_Latn,spa_Latn-cni_Latn,eng_Latn-czn_Latn,spa_Latn-czn_Latn,spa_Latn-oto_Latn,spa_Latn-nah_Latn,spa_Latn-tar_Latn,spa_Latn-shp_Latn,spa_Latn-hch_Latn,spa_Latn-bzd_Latn \
-    --eval-lang-pairs spa_Latn-quy_Latn,spa_Latn-ayr_Latn,spa_Latn-grn_Latn,spa_Latn-cni_Latn,spa_Latn-czn_Latn,spa_Latn-oto_Latn,spa_Latn-nah_Latn,spa_Latn-tar_Latn,spa_Latn-shp_Latn,spa_Latn-hch_Latn,spa_Latn-bzd_Latn \
+fairseq-train $databin --lang-pairs eng_Latn-grn_Latn,eng_Latn-quy_Latn,eng_Latn-ayr_Latn,spa_Latn-quy_Latn,spa_Latn-ayr_Latn,spa_Latn-grn_Latn,spa_Latn-cni_Latn,eng_Latn-ctp_Latn,spa_Latn-ctp_Latn,spa_Latn-oto_Latn,spa_Latn-nah_Latn,spa_Latn-tar_Latn,spa_Latn-shp_Latn,spa_Latn-hch_Latn,spa_Latn-bzd_Latn \
+    --eval-lang-pairs spa_Latn-quy_Latn,spa_Latn-ayr_Latn,spa_Latn-grn_Latn,spa_Latn-cni_Latn,spa_Latn-ctp_Latn,spa_Latn-oto_Latn,spa_Latn-nah_Latn,spa_Latn-tar_Latn,spa_Latn-shp_Latn,spa_Latn-hch_Latn,spa_Latn-bzd_Latn \
     --encoder-normalize-before --decoder-normalize-before \
     --arch transformer \
     --share-all-embeddings \
@@ -19,7 +18,7 @@ fairseq-train $databin --lang-pairs eng_Latn-grn_Latn,eng_Latn-quy_Latn,eng_Latn
     --finetune-from-model $ckp \
     --optimizer adam --adam-betas '(0.9, 0.98)' --clip-norm 1e-6 \
     --lr 0.01 --lr-scheduler inverse_sqrt --warmup-updates 10000 \
-    --max-update 500000 \
+    --max-update 1000000 \
     --validate-interval-updates 20000 \
     --save-interval-updates 20000 \
     --dropout 0.3 --weight-decay 0.0001 \
@@ -27,7 +26,7 @@ fairseq-train $databin --lang-pairs eng_Latn-grn_Latn,eng_Latn-quy_Latn,eng_Latn
     --batch-size 16 \
     --update-freq 1 \
     --fp16 \
-    --seed 4 \
+    --seed 1 \
     --fixed-dictionary $root/dictionary.txt \
     --decoder-langtok --encoder-langtok src \
     --langs $(cat $root/langs_extra.txt) \

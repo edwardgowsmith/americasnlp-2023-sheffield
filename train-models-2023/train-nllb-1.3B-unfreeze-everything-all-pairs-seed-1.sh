@@ -1,13 +1,12 @@
 
-
 ckp=nllb-1.3B/checkpoint.pt
 databin=data-bin/combined
 root=evaluation_v3/NLLB-inference
 
 
 export PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512
-fairseq-train $databin --lang-pairs eng_Latn-quy_Latn,eng_Latn-ayr_Latn,spa_Latn-quy_Latn,spa_Latn-ayr_Latn,spa_Latn-grn_Latn,spa_Latn-cni_Latn,eng_Latn-czn_Latn,spa_Latn-czn_Latn,spa_Latn-oto_Latn,spa_Latn-nah_Latn,spa_Latn-tar_Latn,spa_Latn-shp_Latn,spa_Latn-hch_Latn,spa_Latn-bzd_Latn \
-    --eval-lang-pairs spa_Latn-quy_Latn,spa_Latn-ayr_Latn,spa_Latn-grn_Latn,spa_Latn-cni_Latn,spa_Latn-czn_Latn,spa_Latn-oto_Latn,spa_Latn-nah_Latn,spa_Latn-tar_Latn,spa_Latn-shp_Latn,spa_Latn-hch_Latn,spa_Latn-bzd_Latn \
+fairseq-train $databin --lang-pairs eng_Latn-quy_Latn,eng_Latn-ayr_Latn,spa_Latn-quy_Latn,spa_Latn-ayr_Latn,spa_Latn-grn_Latn,spa_Latn-cni_Latn,eng_Latn-ctp_Latn,spa_Latn-ctp_Latn,spa_Latn-oto_Latn,spa_Latn-nah_Latn,spa_Latn-tar_Latn,spa_Latn-shp_Latn,spa_Latn-hch_Latn,spa_Latn-bzd_Latn \
+    --eval-lang-pairs spa_Latn-quy_Latn,spa_Latn-ayr_Latn,spa_Latn-grn_Latn,spa_Latn-cni_Latn,spa_Latn-ctp_Latn,spa_Latn-oto_Latn,spa_Latn-nah_Latn,spa_Latn-tar_Latn,spa_Latn-shp_Latn,spa_Latn-hch_Latn,spa_Latn-bzd_Latn \
     --encoder-normalize-before --decoder-normalize-before \
     --arch transformer \
     --share-all-embeddings \
@@ -27,7 +26,7 @@ fairseq-train $databin --lang-pairs eng_Latn-quy_Latn,eng_Latn-ayr_Latn,spa_Latn
     --batch-size 16 \
     --update-freq 1 \
     --fp16 \
-    --seed 2 \
+    --seed 1 \
     --fixed-dictionary $root/dictionary.txt \
     --decoder-langtok --encoder-langtok src \
     --langs $(cat $root/langs_extra.txt) \

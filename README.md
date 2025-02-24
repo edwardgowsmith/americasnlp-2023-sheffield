@@ -14,9 +14,11 @@ cd fairseq
 pip install --editable .
 ```
 
-This extends the embeddings of NLLB to cover the additional language tags, and reports ChrF++ at every valid interval. 
+This version of fairseq extends the embeddings of NLLB to cover the additional language tags, and reports ChrF++ at every valid interval. 
 
 Then, process_data.sh can be used to download and process all of the training and evaluation data. 
+
+train-models-2023/ contains scripts for running our experiments for our submission to the 2023 shared task. Submission 3 is training using the script: train-nllb-1.3B-unfreeze-everything-all-pairs-seed-1-sampling-3-detok-train1M.sh
 
 ## Citation
 
