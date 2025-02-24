@@ -378,7 +378,7 @@ class TranslationMultiSimpleEpochTask(LegacyFairseqTask):
         if self.args.eval_tokenized_bleu:
             return sacrebleu.corpus_bleu(hyps, [refs], tokenize="none"), sacrebleu.corpus_chrf(hyps, [refs], tokenize="none")
         else:
-            return sacrebleu.corpus_bleu(hyps, [refs]), sacrebleu.corpus_chrf(hyps, [refs])
+            return sacrebleu.corpus_bleu(hyps, [refs]), sacrebleu.corpus_chrf(hyps, [refs], word_order=2)
 
     def inference_step(
         self, generator, models, sample, prefix_tokens=None, constraints=None, lang=None,
