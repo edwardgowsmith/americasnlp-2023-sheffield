@@ -20,6 +20,10 @@ Then, process_data.sh can be used to download and process all of the training an
 
 train-models-2023/ contains scripts for running our experiments for our submission to the 2023 shared task. Submission 3 is training using the script: train-nllb-1.3B-unfreeze-everything-all-pairs-seed-1-sampling-3-detok-train1M.sh
 
+## Generation
+
+Afer training, the 2023 dev set can be translated using translate-dev-best-single.sh in generate-dev-2023/. 
+
 ## Citation
 
 If you use our models in your work, please cite:
