@@ -18,7 +18,7 @@ This version of fairseq extends the embeddings of NLLB to cover the additional l
 
 Then, process_data.sh can be used to download and process all of the training and evaluation data. 
 
-train-models-2023/ contains scripts for running our experiments for our submission to the 2023 shared task. Submission 3 is training using the script: train-nllb-1.3B-unfreeze-everything-all-pairs-seed-1-sampling-3-detok-train1M.sh
+train-models-2023/ contains scripts for running our experiments for our submission to the 2023 shared task. Submission 3 is trained using the script: train-nllb-1.3B-unfreeze-everything-all-pairs-seed-1-sampling-3-detok-train1M.sh
 
 ## Generation
 
